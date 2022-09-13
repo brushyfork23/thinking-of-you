@@ -58,3 +58,11 @@ Should you repurpose these boards, here are some technical notes about the modul
 -   The LED shield defaults to getting its data over GPIO pin 2 (labeled D4), but WLED sends some other data over that pin at boot which caused the LEDs to flash obnoxiously. I cut the D4 jumper on the back of the LED shield and soldered the jumper to use GPIO pin 15 instead (labeld D8).
 -   The diffusion material has been secured over the LEDs with hot glue (my favorite permanent-until-you-change-your-mind adhesion tool). This should prevent the LEDs from being searingly bright, but if you think up a better method you can just pry off the diffusor and scrape away the glue blobs without leaving any residue.
 -   The LEDs on the shield have the WS2812B chipset, which would like to receive their data at 5V, but I believe the D1 mini outputs data from its GPIO pins at 3.3V. Luckily, for such a small numer of LEDs and at such a small wire distance, everything works fine. If you use the D1 mini to connect to a longer run of LEDs, you will probably want to use a logic level shifter to step up the data line from 3.3V to 5V. Though, there are a number of things you'll want to do for a longer run, like use an external power supply, add a 1000uF capacitor, and maybe include an anti-ringing resistor. Please feel free to reach out for advice on whatever you're trying to accomplish!
+
+# Troubleshooting
+
+Not working?  Boo!  I'm sorry!
+
+The most common issue I've seen is a failure to establish a connection to the MQTT broker. That means you can press the button and it will cycle through colors, but you won't get the fun animation and connection to the other devices.  It's honestly pretty opaque to debug, and I don't have any good recommendation for how to diagnose and repair.  I'm happy to chat with you one-on-one to work through it, but your best bet would be to dive deep and flash a new version of the firmware with debug flags enabled.
+
+Again, if you're having issues, I'm very sorry to have gotten your hopes up and given you a disappointing device. I hope you can still find inspiration to turn this object into something useful.
